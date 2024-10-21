@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form_adding_auto_create_qr_code_product" model="ir.ui.view">
+        <field name="name">res_config_settings_view_form_adding_auto_create_qr_code_product</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='invite_users']" position="before">
+                <div id="product_qr_code">
+                    <block title="Product QR Code Generator" name="product_qr_code_generator">
+                        <setting id="active_auto_qr_code"  help="Is Automatic Generate QR Code When Product Create?">
+                            <field name="create_automatically_qr_code"/>
+                        </setting>
+                    </block>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

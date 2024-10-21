@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="report_product_template_label_dymo_qr" model="ir.actions.report">
+            <field name="name">Product Label QR (PDF)</field>
+            <field name="model">product.template</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">agproductqrcode.report_producttemplatelabel_dymo_qr</field>
+            <field name="report_file">agproductqrcode.report_producttemplatelabel_dymo_qr</field>
+            <field name="paperformat_id" ref="product.paperformat_label_sheet_dymo"/>
+            <field name="print_report_name">'Products Labels QR - %s' % (object.name)</field>
+            <field name="binding_type">report</field>
+        </record>
+
+    <record id="report_product_template_label_2x7price_qr" model="ir.actions.report">
+            <field name="name">Product Label 2x7 Price QR (PDF)</field>
+            <field name="model">product.template</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">agproductqrcode.report_producttemplatelabel2x7_qr</field>
+            <field name="report_file">agproductqrcode.report_producttemplatelabel2x7_qr</field>
+            <field name="paperformat_id" ref="product.paperformat_label_sheet"/>
+            <field name="print_report_name">'Products Labels 2x7 Price QR - %s' % (object.name)</field>
+            <field name="binding_type">report</field>
+        </record>
+
+    <record id="report_product_template_label_4x7price_qr" model="ir.actions.report">
+            <field name="name">Product Label 4x7 Price QR (PDF)</field>
+            <field name="model">product.template</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">agproductqrcode.report_producttemplatelabel4x7_qr</field>
+            <field name="report_file">agproductqrcode.report_producttemplatelabel4x7_qr</field>
+            <field name="paperformat_id" ref="product.paperformat_label_sheet"/>
+            <field name="print_report_name">'Products Labels 4x7 Price QR - %s' % (object.name)</field>
+            <field name="binding_type">report</field>
+        </record>
+
+    <record id="report_product_template_label_4x12_qr" model="ir.actions.report">
+            <field name="name">Product Label 4x12 QR (PDF)</field>
+            <field name="model">product.template</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">agproductqrcode.report_producttemplatelabel4x12_qr</field>
+            <field name="report_file">agproductqrcode.report_producttemplatelabel4x12_qr</field>
+            <field name="paperformat_id" ref="product.paperformat_label_sheet"/>
+            <field name="print_report_name">'Products Labels 4x12 QR - %s' % (object.name)</field>
+            <field name="binding_type">report</field>
+        </record>
+
+    <record id="report_product_template_label_4x12_price_qr" model="ir.actions.report">
+            <field name="name">Product Label 4x12 With Price QR (PDF)</field>
+            <field name="model">product.template</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">agproductqrcode.report_producttemplatelabel4x12_price_qr</field>
+            <field name="report_file">agproductqrcode.report_producttemplatelabel4x12_price_qr</field>
+            <field name="paperformat_id" ref="product.paperformat_label_sheet"/>
+            <field name="print_report_name">'Products Labels 4x12 QR - %s' % (object.name)</field>
+            <field name="binding_type">report</field>
+        </record>
+</odoo>

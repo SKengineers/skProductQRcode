@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="action_generate_qr_code" model="ir.actions.act_window">
+            <field name="name">Generate QR Code</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wizard.generate.qr.code</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="generate_qr_code_form_wizard" model="ir.ui.view">
+            <field name="name">generate_qr_code_form_wizard</field>
+            <field name="model">wizard.generate.qr.code</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="overwrite" />
+                            <field name="model" invisible="1"/>
+                        </group>
+                        <field name="product_template_ids" invisible="model == 'product.product'">
+                            <tree>
+                                <field name="sale_ok" column_invisible="True"/>
+                                <field name="product_variant_count" column_invisible="True"/>
+                                <field name="name" string="Product Name"/>
+                                <field name="default_code" optional="show"/>
+                                <field name="barcode" optional="hide" readonly="product_variant_count != 1"/>
+                                <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company" optional="hide"/>
+                                <field name="list_price" string="Sales Price" widget="monetary" options="{'currency_field': 'currency_id'}" optional="show" decoration-muted="not sale_ok"/>
+                                <field name="standard_price" widget="monetary" options="{'currency_field': 'cost_currency_id'}" optional="show" readonly="1"/>
+                                <field name="qr_code"/>
+                                <field name="categ_id" optional="hide"/>
+                                <field name="detailed_type" optional="hide" readonly="1"/>
+                                <field name="type" column_invisible="True"/>
+                            </tree>
+                        </field>
+                        <field name="product_product_ids" invisible="model == 'product.template'">
+                            <tree>
+                                <field name="default_code" optional="show" readonly="1"/>
+                                <field name="barcode" optional="hide" readonly="1"/>
+                                <field name="name" readonly="1"/>
+                                <field name="product_template_variant_value_ids" widget="many2many_tags" groups="product.group_product_variant" readonly="1"/>
+                                <field name="company_id" groups="base.group_multi_company" optional="hide" readonly="1"/>
+                                <field name="lst_price" optional="show" string="Sales Price"/>
+                                <field name="standard_price" optional="show"/>
+                                <field name="qr_code"/>
+                                <field name="categ_id" optional="hide"/>
+                                <field name="type" optional="hide" readonly="1"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                    <footer>
+                        <button
+                                name="action_generate"
+                                string="Generate QR Code"
+                                type="object"
+                                class="btn-primary"
+                                confirm="Do you want to Generate QR Code ?"
+                        />
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+</odoo>
